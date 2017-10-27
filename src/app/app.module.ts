@@ -11,9 +11,9 @@ import { ChildPushComponent } from './child-push/child-push.component';
  * Application routes
  */
 const APP_ROUTES: Routes = [
-  { path: "default", component: ChildDefaultComponent },
-  { path: "push", component: ChildPushComponent },
-  { path: "", redirectTo: "/default", pathMatch: "full" }  
+  { path: "default/:data", component: ChildDefaultComponent },
+  { path: "push/:data", component: ChildPushComponent },
+  { path: "", redirectTo: "/default/A", pathMatch: "full" }  
 ];
 
 /**

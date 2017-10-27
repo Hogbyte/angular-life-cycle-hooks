@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 import { LoggerService } from "../logger.service";
 
@@ -10,13 +11,16 @@ import { LoggerService } from "../logger.service";
   styleUrls: ['./child-default.component.css']
 })
 export class ChildDefaultComponent implements OnInit {
+  data: string = "";
   private logSourceKey: string = "ChildDefaultComponent";
+  private logBackgroundColor: string = "lightGreen";
 
   /**
    * Creates a new instance
-   * @param logger {LoggerService} - injected reference to the logger service
+   * @param activatedRoute {ActivatedRoute} - Injected reference to the activated route
+   * @param logger {LoggerService} - Injected reference to the logger service
    */
-  constructor(private logger: LoggerService) {
+  constructor(private activatedRoute: ActivatedRoute, private logger: LoggerService) {
     this.logMessage("Constructor called.");
   }
 
@@ -32,6 +36,12 @@ export class ChildDefaultComponent implements OnInit {
    */
   ngOnInit(): void {
     this.logMessage("ngOnInit called.");
+
+    // Process route parameter changes
+    this.activatedRoute.params.forEach((params: Object) => {
+      this.data = params["data"];
+      this.logMessage(`${this.logSourceKey}: Data changed to ${this.data}`);
+    });
   }
 
   /**
@@ -85,7 +95,7 @@ export class ChildDefaultComponent implements OnInit {
    * @param message {string} - The message to log
    */
   private logMessage(message): void {
-    this.logger.logMessage(this.logSourceKey, message);
+    this.logger.logMessage(this.logSourceKey, message, this.logBackgroundColor);
   }
 
 }

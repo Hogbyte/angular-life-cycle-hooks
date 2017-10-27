@@ -14,6 +14,7 @@ import { ILogMessage, LoggerService } from "./logger.service";
 export class AppComponent {
   messages: ILogMessage[] = null;
   private logSourceKey: string = "AppComponent";
+  private logBackgroundColor: string = "lightcyan";
   private messagesChangedSubscription: Subscription = null;
 
   /**
@@ -108,6 +109,6 @@ export class AppComponent {
    * @param message {string} - The message to log
    */
   private logMessage(message): void {
-    this.logger.logMessage(this.logSourceKey, message);
+    this.logger.logMessage(this.logSourceKey, message, this.logBackgroundColor);
   }
 }
