@@ -1,0 +1,19 @@
+li {
+    max-width: 500px;
+}
+
+.LoggerService {
+    background-color: lightgoldenrodyellow;
+}
+
+.AppComponent {
+    background-color: lightcyan;
+}
+
+.ChildComponent {
+    background-color: lightgreen;
+}
+
+.PushComponent {
+    background-color: lightseagreen;
+}

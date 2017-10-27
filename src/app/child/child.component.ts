@@ -1,20 +1,17 @@
-import { Component } from '@angular/core';
-import { Subscription } from "rxjs/Subscription";
+import { Component, OnInit } from '@angular/core';
 
-import { ILogMessage, LoggerService } from "./logger.service";
+import { LoggerService } from "../logger.service";
 
 /**
- * Root component
+ * A child component with the default change detection strategy
  */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.css']
 })
-export class AppComponent {
-  messages: ILogMessage[] = null;
-  private logSourceKey: string = "AppComponent";
-  private messagesChangedSubscription: Subscription = null;
+export class ChildComponent implements OnInit {
+  private logSourceKey: string = "ChildComponent";
 
   /**
    * Creates a new instance
@@ -36,13 +33,6 @@ export class AppComponent {
    */
   ngOnInit(): void {
     this.logMessage("ngOnInit called.");
-
-    // Update messages when logger messages change
-    this.messagesChangedSubscription = this.logger.messagesChanged$.subscribe(
-      (newMessageList: ILogMessage[]) => {
-        this.messages = newMessageList;
-      }
-    );
   }
 
   /**
@@ -82,18 +72,6 @@ export class AppComponent {
    */
   ngOnDestroy(): void {
     this.logMessage("ngOnDestroy called.");
-
-    // Unsubscribe from message changes
-    if (this.messagesChangedSubscription) {
-      this.messagesChangedSubscription.unsubscribe();
-    }
-  }
-
-  /**
-   * Runs when the "Clear Messages" button is clicked
-   */
-  onClearMessages(): void {
-    this.logger.clearMessages();
   }
 
   /**
@@ -103,4 +81,5 @@ export class AppComponent {
   private logMessage(message): void {
     this.logger.logMessage(this.logSourceKey, message);
   }
+
 }
