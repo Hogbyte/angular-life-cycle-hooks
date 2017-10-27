@@ -1,3 +1,7 @@
+.activeRoute {
+    background-color: lightskyblue
+}
+
 li {
     max-width: 500px;
 }
@@ -10,10 +14,10 @@ li {
     background-color: lightcyan;
 }
 
-.ChildComponent {
+.ChildDefaultComponent {
     background-color: lightgreen;
 }
 
-.PushComponent {
+.ChildPushComponent {
     background-color: lightseagreen;
 }

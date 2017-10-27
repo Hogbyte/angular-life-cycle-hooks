@@ -1,19 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { LoggerService } from "./logger.service";
-import { ChildComponent } from './child/child.component';
-import { PushComponent } from './push/push.component';
+import { ChildDefaultComponent } from './child-default/child-default.component';
+import { ChildPushComponent } from './child-push/child-push.component';
 
+/**
+ * Application routes
+ */
+const APP_ROUTES: Routes = [
+  { path: "default", component: ChildDefaultComponent },
+  { path: "push", component: ChildPushComponent },
+  { path: "", redirectTo: "/default", pathMatch: "full" }  
+];
+
+/**
+ * Application root module
+ */
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent,
-    PushComponent
+    ChildDefaultComponent,
+    ChildPushComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [LoggerService],
   bootstrap: [AppComponent]

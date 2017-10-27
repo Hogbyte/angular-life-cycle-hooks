@@ -32,7 +32,7 @@ export class LoggerService {
    */
   clearMessages(): void {
     // Note: intentionally creating a new array when messages are cleared
-    this.messages = [];
+    this.messages = [{ sourceKey: this.logSourceKey, message: "Cleared messages." }];
     this.messagesChangedSubject.next(this.messages);
   }
 

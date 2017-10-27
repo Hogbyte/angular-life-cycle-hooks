@@ -6,13 +6,12 @@ import { LoggerService } from "../logger.service";
  * Child component with the "OnPush" change detection strategy
  */
 @Component({
-  selector: 'app-push',
-  templateUrl: './push.component.html',
-  styleUrls: ['./push.component.css'],
+  templateUrl: './child-push.component.html',
+  styleUrls: ['./child-push.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PushComponent implements OnInit {
-  private logSourceKey: string = "PushComponent";
+export class ChildPushComponent implements OnInit {
+  private logSourceKey: string = "ChildPushComponent";
   
   /**
    * Creates a new instance
@@ -73,6 +72,13 @@ export class PushComponent implements OnInit {
    */
   ngOnDestroy(): void {
     this.logMessage("ngOnDestroy called.");
+  }
+
+  /**
+   * Runs when the "Log button event" button is clicked
+   */
+  onButtonClick(): void {
+    this.logMessage("Button clicked.");
   }
 
   /**

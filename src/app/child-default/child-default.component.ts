@@ -6,12 +6,11 @@ import { LoggerService } from "../logger.service";
  * A child component with the default change detection strategy
  */
 @Component({
-  selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrls: ['./child.component.css']
+  templateUrl: './child-default.component.html',
+  styleUrls: ['./child-default.component.css']
 })
-export class ChildComponent implements OnInit {
-  private logSourceKey: string = "ChildComponent";
+export class ChildDefaultComponent implements OnInit {
+  private logSourceKey: string = "ChildDefaultComponent";
 
   /**
    * Creates a new instance
@@ -72,6 +71,13 @@ export class ChildComponent implements OnInit {
    */
   ngOnDestroy(): void {
     this.logMessage("ngOnDestroy called.");
+  }
+
+  /**
+   * Runs when the "Log button event" button is clicked
+   */
+  onButtonClick(): void {
+    this.logMessage("Button clicked.");
   }
 
   /**

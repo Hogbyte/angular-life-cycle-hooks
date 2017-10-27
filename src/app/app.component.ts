@@ -18,7 +18,7 @@ export class AppComponent {
 
   /**
    * Creates a new instance
-   * @param logger {LoggerService} - injected reference to the logger service
+   * @param logger {LoggerService} - Injected reference to the logger service
    */
   constructor(private logger: LoggerService) {
     this.logMessage("Constructor called.");
@@ -94,6 +94,13 @@ export class AppComponent {
    */
   onClearMessages(): void {
     this.logger.clearMessages();
+  }
+
+  /**
+   * Runs when the "Log button event" button is clicked
+   */
+  onButtonClick(): void {
+    this.logMessage("Button clicked.");
   }
 
   /**

@@ -1,9 +1,15 @@
-<app-child></app-child>
-<app-push></app-push>
-
 <div>
+  <a routerLink="/default" routerLinkActive="activeRoute">Child Component</a>
+  <a routerLink="/push" routerLinkActive="activeRoute">Push Component</a>
+  <button type="button" (click)="onButtonClick()">Log button event.</button>
   <button type="button" (click)="onClearMessages()">Clear Messages</button>
 </div>
+
+<hr />
+
+<router-outlet></router-outlet>
+
+<hr />
 
 <ol>
   <li *ngFor="let message of messages"
