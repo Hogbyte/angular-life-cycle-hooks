@@ -7,6 +7,7 @@ import { LoggerService } from "../logger.service";
  * A child component with the default change detection strategy
  */
 @Component({
+  selector: "app-child-default",
   templateUrl: './child-default.component.html',
   styleUrls: ['./child-default.component.css']
 })

@@ -12,6 +12,7 @@ import { ILogMessage, LoggerService } from "./logger.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  useRouter: boolean = false;
   messages: ILogMessage[] = null;
   private logSourceKey: string = "AppComponent";
   private logBackgroundColor: string = "lightcyan";

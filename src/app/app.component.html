@@ -1,15 +1,29 @@
-<div>
-  <a routerLink="/default/A" routerLinkActive="activeRoute">Default Child (A)</a>
-  <a routerLink="/default/B" routerLinkActive="activeRoute">Default Child (B)</a>
-  <a routerLink="/push/A" routerLinkActive="activeRoute">On-Push Child (A)</a>
-  <a routerLink="/push/B" routerLinkActive="activeRoute">On-Push Child (B)</a>
-  <button type="button" (click)="onButtonClick()">Log button event.</button>
-  <button type="button" (click)="onClearMessages()">Clear Messages</button>
-</div>
+<button type="button" (click)="onButtonClick()">Log button event.</button>
+<button type="button" (click)="onClearMessages()">Clear Messages</button>
+<label>
+  <input type="checkbox"
+         [checked]="useRouter"
+         (change)="useRouter = $event.target.checked" />
+  Use router
+</label>
 
 <hr />
 
-<router-outlet></router-outlet>
+<ng-container *ngIf="useRouter">
+  <div>
+    <a routerLink="/default/A" routerLinkActive="activeRoute">Default Child (A)</a>
+    <a routerLink="/default/B" routerLinkActive="activeRoute">Default Child (B)</a>
+    <a routerLink="/push/A" routerLinkActive="activeRoute">On-Push Child (A)</a>
+    <a routerLink="/push/B" routerLinkActive="activeRoute">On-Push Child (B)</a>
+  </div>
+  <hr />
+  <router-outlet></router-outlet>
+</ng-container>
+
+<div *ngIf="!useRouter">
+  <app-child-default></app-child-default>
+  <app-child-push></app-child-push>
+</div>
 
 <hr />
 

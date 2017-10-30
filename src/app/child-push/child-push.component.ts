@@ -8,6 +8,7 @@ import { LoggerService } from "../logger.service";
  * Child component with the "OnPush" change detection strategy
  */
 @Component({
+  selector: "app-child-push",
   templateUrl: './child-push.component.html',
   styleUrls: ['./child-push.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
