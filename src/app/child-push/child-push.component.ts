@@ -41,6 +41,7 @@ export class ChildPushComponent implements OnInit {
     this.logMessage("ngOnInit called.");
 
     // Process route parameter changes
+    // (note: not sure if using "forEach" or using a subscription to handle param changes is best)
     this.activatedRoute.params.forEach((params: Object) => {
       this.data = params["data"];
       this.logMessage(`${this.logSourceKey}: Data changed to ${this.data}`);

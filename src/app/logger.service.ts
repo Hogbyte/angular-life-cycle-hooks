@@ -50,6 +50,8 @@ export class LoggerService {
     // Note: intentionally creating a new array when messages are added
     //this.messages = [...this.messages, { sourceKey, message }];
     //this.messagesChangedSubject.next(this.messages);
+
+    // Not sure if this will work in Chrome (supported in Firefox)
     console.log(`%c ${sourceKey}: ${message}`, `color: black; background-color: ${backgroundColor}`);
   }
 }
