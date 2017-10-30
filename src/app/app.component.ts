@@ -92,6 +92,13 @@ export class AppComponent {
   }
 
   /**
+   * Reloads the application
+   */
+  onReloadClick(): void {
+    window.location.href = "/";
+  }
+
+  /**
    * Runs when the "Clear Messages" button is clicked
    */
   onClearMessages(): void {

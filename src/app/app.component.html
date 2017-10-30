@@ -1,3 +1,10 @@
+<a class="externalLink"
+   href="https://angular.io/guide/lifecycle-hooks"
+   target="_blank">https://angular.io/guide/lifecycle-hooks</a>
+
+<hr />
+
+<button type="button" (click)="onReloadClick()">Reload</button>
 <button type="button" (click)="onButtonClick()">Log button event.</button>
 <button type="button" (click)="onClearMessages()">Clear Messages</button>
 <label>
@@ -11,10 +18,10 @@
 
 <ng-container *ngIf="useRouter">
   <div>
-    <a routerLink="/default/A" routerLinkActive="activeRoute">Default Child (A)</a>
-    <a routerLink="/default/B" routerLinkActive="activeRoute">Default Child (B)</a>
-    <a routerLink="/push/A" routerLinkActive="activeRoute">On-Push Child (A)</a>
-    <a routerLink="/push/B" routerLinkActive="activeRoute">On-Push Child (B)</a>
+    <a class="navLink" routerLink="/default/A" routerLinkActive="activeRoute">Default Child (A)</a>
+    <a class="navLink" routerLink="/default/B" routerLinkActive="activeRoute">Default Child (B)</a>
+    <a class="navLink" routerLink="/push/A" routerLinkActive="activeRoute">On-Push Child (A)</a>
+    <a class="navLink" routerLink="/push/B" routerLinkActive="activeRoute">On-Push Child (B)</a>
   </div>
   <hr />
   <router-outlet></router-outlet>
